@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +15,8 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', function () {
-    return view('front.index');
-});
+Route::get('/',[HomeController::class,'index'])->name('index');
 
-Route::get('/about',[HomeController::class,'index']);
+Route::get('/contact',[HomeController::class,'contact'])->name('contact');
 
-Route::get('/contact','HomeController@contact');
+Route::get('/about',[AboutController::class,'about'])->name('about');
